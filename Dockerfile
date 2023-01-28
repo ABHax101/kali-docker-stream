@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y \
 
 # Install noVNC
 RUN wget https://github.com/novnc/noVNC/archive/v1.2.0.zip && unzip v1.2.0.zip && rm v1.2.0.zip
+RUN mkdir -p /usr/local/bin/noVNC
 RUN cp -r noVNC-1.2.0/* /usr/local/bin/noVNC
 
 # Copy the start.sh script and .ratpoisonrc file to the container

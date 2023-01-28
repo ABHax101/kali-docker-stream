@@ -1,0 +1,3 @@
+# Ratpoison configuration file
+
+bind f3 exec xterm

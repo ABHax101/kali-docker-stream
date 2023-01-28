@@ -16,9 +16,12 @@ RUN apt-get update && apt-get install -y \
 RUN wget https://github.com/novnc/noVNC/archive/v1.2.0.zip && unzip v1.2.0.zip && rm v1.2.0.zip
 RUN cp -r noVNC-1.2.0/* /usr/local/bin/noVNC
 
-# Copy the start.sh script and ratpoisonrc file to the container
+# Copy the start.sh script and .ratpoisonrc file to the container
 COPY start.sh /root/
-COPY .ratpoisonrc /root/
+COPY .ratpoisonrc /etc/ratpoison/
+
+# Change .ratpoisonrc ownership to root user to avoid potential issues
+RUN chown root:root /etc/ratpoison/.ratpoisonrc
 
 # Expose port 80 for the noVNC web interface
 EXPOSE 80

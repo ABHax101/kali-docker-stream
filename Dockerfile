@@ -3,6 +3,7 @@ FROM kalilinux/kali-rolling
 
 # Install the necessary dependencies for noVNC and Ratpoison
 RUN apt-get update && apt-get install -y \
+    apt-utils \
     python3-numpy \
     python3-pil.imagetk \
     tightvncserver \
